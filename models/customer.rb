@@ -23,7 +23,7 @@ class Customer
   end
 
   def update()
-    sql = "UPDATE customers SET (name) = (#{@name}), (funds) = (#{@funds}) ;"
+    sql = "UPDATE customers SET (name = #{@name}, funds = #{@funds}) ;"
     customers = SqlRunner.run(sql)
     return customers.map { |update| Customer.new(update) }
   end
