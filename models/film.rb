@@ -26,7 +26,7 @@ class Film
     return films.map {|update| Film.new(update)}
   end
 # in update above can I not update price at the same time? e.g. (title, price) = (#{@title}, #{@price});"
-# or should I have a seperate line for this
+# or should I have a seperate line for this.  Should I have a WHERE id = #{@id} bit?
   def delete
     sql = "DELETE FROM film WHERE id = #{@film_id};"
     SqlRunner.run(sql)
