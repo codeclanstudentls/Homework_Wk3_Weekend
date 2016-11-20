@@ -1,0 +1,4 @@
+-- SELECT f.title as film_title, c.name as customer_name
+-- FROM film f
+-- INNER JOIN customer c
+-- ON f.film_id = c.film_id;

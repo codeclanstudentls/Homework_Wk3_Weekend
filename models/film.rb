@@ -22,12 +22,12 @@ class Film
   end
 
   def update()
-    sql = "UPDATE films SET (title) = (#{@title});"
+    sql = "UPDATE films SET (title = #{@title}, price = #{@price});"
     films = SqlRunner.run(sql)
     return films.map {|update| Film.new(update)}
   end
 # in update above can I not update price at the same time? e.g. (title, price) = (#{@title}, #{@price});"
-
+# or should I have a seperate line for this
   def delete
     sql = "DELETE FROM film WHERE id = #{@film_id};"
     SqlRunner.run(sql)
@@ -37,6 +37,11 @@ class Film
     sql = "SELECT * FROM films;"
     films = SqlRunner.run(sql)
     return films.map { |movie| Film.new(movie) }
+  end
+
+  def self.delete_all() 
+    sql = "DELETE FROM films"
+    SqlRunner.run(sql)
   end
 
 end
