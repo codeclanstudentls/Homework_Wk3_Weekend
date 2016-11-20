@@ -29,8 +29,8 @@ ticket2 = Ticket.new({'customer_id' => customer3.id, 'film_id' => film1.id})
 ticket1.save()
 ticket2.save()
 
-customer1.funds -= film2.price 
-customer1.update()
+# customer1.funds -= film2.price 
+# customer1.update()
 
 customers = Customer.all()
 films = Film.all()
