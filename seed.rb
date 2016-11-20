@@ -30,7 +30,6 @@ ticket1.save()
 ticket2.save()
 
 
-
 customers = Customer.all()
 films = Film.all()
 tickets = Ticket.all()
