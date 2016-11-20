@@ -10,16 +10,14 @@ class Customer
   def initialize(options)
     @name = options['name']
     @funds = options['funds'].to_i
-    @customer_id = options['customer_id'].to_i
     @id = options['id'].to_i if options['id']
   end
 
 
   def save()
     sql = "INSERT INTO customers (name, funds) VALUES ('#{@name}', #{@funds}) RETURNING *;"
-    result = SqlRunner.run(sql)
-    @id = result[0]['id'].to_i
-
+    customer = SqlRunner.run(sql)
+    @id = customer[0]['id'].to_i
   end
 
   def update()
